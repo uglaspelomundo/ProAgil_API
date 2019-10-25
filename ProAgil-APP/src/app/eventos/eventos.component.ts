@@ -7,12 +7,20 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./eventos.component.css']
 })
 export class EventosComponent implements OnInit {
-  eventos: any;
+  eventos: any = [];
+  imagemLargura = 50;
+  imagemMargem = 2;
+  mostrarImagem = false;
+  filtroLista = '';
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.getEventos();
+  }
+
+  AlternarImagem() {
+    this.mostrarImagem = !this.mostrarImagem;
   }
 
   getEventos() {
